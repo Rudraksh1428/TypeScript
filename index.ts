@@ -56,4 +56,18 @@ else
 
 console.log (age(55))
 
+
+//problem-4
+
+function one(fn :()=>void)
+{
+  setTimeout(fn,1000)
+}
+
+one(function()
+{
+  console.log("hi")
+})
+
+
 //==================================================================================//
