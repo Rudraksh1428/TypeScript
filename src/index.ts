@@ -71,3 +71,47 @@ one(function()
 
 
 //==================================================================================//
+
+
+
+function greets(user : 
+  {
+    name : string ,
+    age : number
+  }
+)
+{
+  console.log(user.name)
+}
+
+greets(
+  {
+    name:"ram",
+    age:10
+  }
+)
+
+
+type userType = {
+name : string ,
+age : number
+}
+
+
+let user : userType = {
+  name:"rud" ,
+  age : 10
+}
+
+function hello (user: userType)
+{
+return user
+}
+
+
+/*
+interface userType = {
+name : string ,
+age : number
+}
+*/
