@@ -8,7 +8,7 @@ console.log(y);
 let z = 1;
 z = true;
 z = "anything";
-//part-1
+//problem-1
 function greeting(firstName) {
     //explicitly u can assign it any
     console.log("hello" + firstName);
@@ -32,5 +32,14 @@ function sum(a, b) {
 }
 let ans = sum(10, 20);
 console.log(ans);
+//problem-3
+function age(x) {
+    if (x > 18) {
+        return true;
+    }
+    else
+        return false;
+}
+console.log(age(55));
 //==================================================================================//
 //# sourceMappingURL=index.js.map

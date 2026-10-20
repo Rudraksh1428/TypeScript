@@ -9,7 +9,7 @@ let z: any = 1;
 z = true;
 z = "anything";
 
-//part-1
+//problem-1
 
 function greeting(firstName: any) {
   //explicitly u can assign it any
@@ -40,5 +40,20 @@ function sum(a: number, b: number) {
 
 let ans = sum(10, 20);
 console.log(ans);
+
+
+//problem-3
+
+function age(x : number) : boolean
+{
+if (x>18)
+{
+  return true
+}
+else 
+  return false
+}
+
+console.log (age(55))
 
 //==================================================================================//
