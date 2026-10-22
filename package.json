@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-  "dependencies": {
+  "devDependencies": {
     "typescript": "^7.0.2"
   }
 }
