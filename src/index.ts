@@ -210,3 +210,28 @@ this.age = age
 
   let userr = new manager ("money",25)
   console.log(userr.age)
+
+  class shape {
+    constructor(a:number)
+    {}
+    area()
+    {
+
+    }
+  }
+
+  class rectangle extends shape {
+    
+    height : number ;
+    width : number ;
+
+    constructor (height : number , width : number)
+    {
+      super(1) ;
+      this.height = height ;
+      this.width = width;
+    }
+  } //to extend we use the keyword super
+
+  const r= new rectangle(2,4)
+  r.area
