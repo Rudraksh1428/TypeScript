@@ -175,3 +175,19 @@ const anss = a1(user1);
     name : string ,
     address : Address
   }
+
+  interface people {
+    name: string ,
+    milan: ()=> string ,  //milan and milanw returns string type
+   
+  }
+
+  let person : people={
+    name : "rudd" ,
+    milan:()  => {
+      return "hiiii"
+    } 
+  }
+
+  let p = person.milan()
+  console.log(p)
