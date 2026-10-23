@@ -178,16 +178,35 @@ const anss = a1(user1);
 
   interface people {
     name: string ,
-    milan: ()=> string ,  //milan and milanw returns string type
+    age : number ,
+  //  milan: ()=> string ,  //milan and milanw returns string type
    
   }
 
   let person : people={
     name : "rudd" ,
-    milan:()  => {
-      return "hiiii"
-    } 
+    age : 53 ,
+    // milan:()  => {
+    //   return "hiiii"
+    // } 
   }
 
-  let p = person.milan()
-  console.log(p)
+ // let p = person.milan()
+ // console.log(p)
+  
+  //Classes in typescript
+
+  class manager implements people {
+name : string ;
+age : number ; 
+
+ 
+  constructor (name :  string ,age : number) //when u create an instance of a class, the constructor gets called to construct the object
+  {
+this.name = name ;
+this.age = age
+  }
+  }
+
+  let userr = new manager ("money",25)
+  console.log(userr.age)
