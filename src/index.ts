@@ -306,3 +306,27 @@ let t: TeamLead = {
 
 
 //union
+
+type goodUser = {
+ name : string ;
+ gift : string 
+}
+
+type badUser = {
+  name : string , 
+  ip : string
+}
+
+type User = goodUser | badUser;
+
+// const user5 : User = {
+// name : "naam" ,
+// ip : "fds" ,
+// gift : 'helloji'
+// }
+
+const user5 : User = {
+name : "naam" ,
+ip : "fds" ,
+} //union me ek bhi hoskta h aur sare ppt bhi hoskte h
+
