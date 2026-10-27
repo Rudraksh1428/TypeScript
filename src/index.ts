@@ -330,3 +330,69 @@ name : "naam" ,
 ip : "fds" ,
 } //union me ek bhi hoskta h aur sare ppt bhi hoskte h
 
+//interfaces vs types
+
+// interface admin {
+//   name : string ,
+//   permissions : string,
+// }
+
+// interface user6 {
+//   name : string ,
+//   age : number
+// }
+
+// type UserorAdmin = user6 | admin;
+
+// function greeet(user7 : UserorAdmin ){
+// console.log(user7.name)
+// }
+
+
+function getMax(nums: number[]){
+  let maxValue = -100000000000;
+
+  for (let i=0 ;i<nums.length ; i++)
+  {
+    if(nums[i] > maxValue)
+    {
+      maxValue = nums[i]
+  }
+}
+return maxValue
+}
+
+getMax([1,2,3])
+
+
+interface Addresss {
+  city : string ,
+  pincode :string;
+}
+
+interface User3 {
+  name : string ;
+  age : number ;
+  addresses : Addresss[]
+}
+
+interface Addresss {
+  city: string;
+  pincode: string;
+}
+
+interface User3 {
+  name: string;
+  age: number;
+  addresses: Addresss[];
+}
+
+let user8: User3 = {
+  name: "helo",
+  age: 21,
+  addresses: [
+    { city: "Delhi", pincode: "110001" },
+    { city: "Mumbai", pincode: "400001" },
+    { city: "Lucknow", pincode: "226001" }
+  ]
+};
