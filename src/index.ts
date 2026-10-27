@@ -254,3 +254,55 @@ this.age = age
     }
   }
 //difference between abstract and interface is that abstract can have default implementations
+
+// type User = 
+// {
+//   name : string ;
+//   age : number
+// }
+
+// function isLegal(user:User)
+// {
+//   return user.age >= 18;
+// }
+
+
+//types lets us do unions and itersections
+
+
+//intersections
+
+type employee = 
+{
+  name : string ;
+  startDate : Date;
+  
+}
+
+type manager1 = {
+  name : string ;
+ department : string;
+}
+
+type TeamLead = employee & manager1 ;
+
+
+let e : employee = {
+  name : "mine",
+  startDate : new Date()
+}
+
+let m : manager1 = {
+  name : "mine" ,
+  department : "cuhefk"
+}
+
+let t: TeamLead = {
+  name : "mine" ,
+  startDate : new Date(),
+  department : "cuhefk"
+}
+
+
+
+//union
