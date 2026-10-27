@@ -235,3 +235,22 @@ this.age = age
 
   const r= new rectangle(2,4)
   r.area
+
+//interface can be implemented as classes (difference btwn types and interfaces)
+
+
+  //abstract
+
+  abstract class user4{
+    name : string ;
+    constructor(name : string)
+    {
+      this.name = "phoolan devi"
+    }
+    abstract greet:() => string;
+    hello()
+    {
+      console.log("hi there")
+    }
+  }
+//difference between abstract and interface is that abstract can have default implementations
