@@ -525,3 +525,20 @@ const user3: Users = {
   "raf":{age : 21 , name : "hie"},
   "raf2":{age: 34, name : "hieee"}
 };
+
+
+//maps
+
+type Userrr = {
+name : string ;
+age : number ;
+email : string;
+}
+
+ const u = new Map<string , Userrr>()
+ u.set("qw", {name : "qwe" , age: 30 , email : "fswrg"})
+ u.set("qwerty", {name : "qwery" , age: 34 , email : "fs324"})
+
+ const userr = u.get("fswrg")
+ u.delete('fswrg')
+
