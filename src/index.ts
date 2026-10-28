@@ -400,9 +400,7 @@
 // const newVPoint = new VirtualPoint(13, 56);
 // logPoint(newVPoint); // logs "13, 56"
 
-
 // // question
-
 
 // interface u {
 //   name: string;
@@ -415,7 +413,6 @@
 
 // const agee = sumOfAge({ name: "hi", age: 25 }, { name: "yes", age: 35 });
 // console.log(agee)
-
 
 //pick (picks specific)
 
@@ -430,34 +427,26 @@
 // type updateProps = Pick<User , 'name'|'age'|'email' >
 
 // function updateUser(updatedProps : updateProps)
-// {   
+// {
 
 // }
 
-
-
 //partial (makes it optional)
 
-
-
 interface User {
-  id: string ;
-  name : string ;
-  age : number ;
-  email : string ;
-  password : string
-};
-
-type updateProps = Pick<User , 'name'|'age'|'email' >
-type updatedPropsOptional  = Partial<updateProps>
-
-function updateUser(updatedProps : updatedPropsOptional)
-{   
+  id: string;
+  name: string;
+  age: number;
+  email: string;
+  password: string;
 }
 
+type updateProps = Pick<User, "name" | "age" | "email">;
+type updatedPropsOptional = Partial<updateProps>;
+
+function updateUser(updatedProps: updatedPropsOptional) {}
 
 //Readonly = readonly prevents you from modifying a property after initialization.
-
 
 // const obj = {
 //   name: "john",
@@ -465,9 +454,9 @@ function updateUser(updatedProps : updatedPropsOptional)
 //   country: "india"
 // };
 
-// obj.name = "akjdjjka"; 
-// obj.age = 25;          
-// obj.country = "USA";  
+// obj.name = "akjdjjka";
+// obj.age = 25;
+// obj.country = "USA";
 
 //by this method we can change any of the name age or country (one at a time not entire object),to stop this we use readonly
 
@@ -480,8 +469,59 @@ interface User1 {
 const obj: User1 = {
   name: "john",
   age: 20,
-  country: "india"
+  country: "india",
 };
 
 //obj.name = "Alex"; // ❌ Error
 // obj.age = 25;      // ❌ Error
+
+//also we can do it like
+
+type User2 = {
+  name: string;
+  age: number;
+};
+
+const user: Readonly<User2> = {
+  name: "john",
+  age: 21,
+};
+
+//user.age =33 not possible
+
+//record 
+
+// type User3 = {
+//     id : string,
+//     username : string
+// }
+
+// type Users3 = {
+//   [key : string] : User3    ;
+// }
+
+// const user3 : Users3= {
+//   "raf":{
+//     id : "raf",
+//     username : "hi"
+//   },
+//   "raf2":
+//   {
+//     id : "raf2",
+//     username : "hello"
+//   }
+// }
+
+//the above block of code can be written as
+
+// type UsersAge = {
+//   [key: string]: number;
+// }; 
+
+
+type Users = Record<string, {age : number ; name : string}>;
+
+const user3: Users = {
+  "raf":{age : 21 , name : "hie"},
+  "raf2":{age: 34, name : "hieee"}
+};
