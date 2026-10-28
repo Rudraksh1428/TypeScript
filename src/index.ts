@@ -109,7 +109,7 @@ function a(a1: number, a2: number): number {
 interface User1 {
   name: string;
   age: number;
-  address ?: {
+  address?: {
     city: string;
     state: string;
     pincode: number;
@@ -118,17 +118,15 @@ interface User1 {
 
 // ?: makes it optional, without this u would be required to enter the address and its details
 
-
 interface User2 {
   name: string;
   age: number;
-  address ?: {
+  address?: {
     city?: string; //nowcity is optional
     state: string;
     pincode: number;
   };
 }
-
 
 let user1: User1 = {
   name: "me",
@@ -140,10 +138,10 @@ let user1: User1 = {
   },
 };
 
-let user2 : User1 = {
-  name:"1",
-  age:1
-}
+let user2: User1 = {
+  name: "1",
+  age: 1,
+};
 
 function a1(user1: User1): boolean {
   if (user1.age >= 18) {
@@ -162,100 +160,88 @@ const anss = a1(user1);
   }
 }
 
-
 //interface can use another interface
 
- interface Address {
-    city: "hello",
-    state: "kcubhi",
-    pincode: 221,
-  }
+interface Address {
+  city: "hello";
+  state: "kcubhi";
+  pincode: 221;
+}
 
-  interface user3 {
-    name : string ,
-    address : Address
-  }
+interface user3 {
+  name: string;
+  address: Address;
+}
 
-  interface people {
-    name: string ,
-    age : number ,
+interface people {
+  name: string;
+  age: number;
   //  milan: ()=> string ,  //milan and milanw returns string type
-   
+}
+
+let person: people = {
+  name: "rudd",
+  age: 53,
+  // milan:()  => {
+  //   return "hiiii"
+  // }
+};
+
+// let p = person.milan()
+// console.log(p)
+
+//Classes in typescript
+
+class manager implements people {
+  name: string;
+  age: number;
+
+  constructor(name: string, age: number) {
+    //when u create an instance of a class, the constructor gets called to construct the object
+    this.name = name;
+    this.age = age;
   }
+}
 
-  let person : people={
-    name : "rudd" ,
-    age : 53 ,
-    // milan:()  => {
-    //   return "hiiii"
-    // } 
+let userr = new manager("money", 25);
+console.log(userr.age);
+
+class shape {
+  constructor(a: number) {}
+  area() {}
+}
+
+class rectangle extends shape {
+  height: number;
+  width: number;
+
+  constructor(height: number, width: number) {
+    super(1);
+    this.height = height;
+    this.width = width;
   }
+} //to extend we use the keyword super
 
- // let p = person.milan()
- // console.log(p)
-  
-  //Classes in typescript
-
-  class manager implements people {
-name : string ;
-age : number ; 
-
- 
-  constructor (name :  string ,age : number) //when u create an instance of a class, the constructor gets called to construct the object
-  {
-this.name = name ;
-this.age = age
-  }
-  }
-
-  let userr = new manager ("money",25)
-  console.log(userr.age)
-
-  class shape {
-    constructor(a:number)
-    {}
-    area()
-    {
-
-    }
-  }
-
-  class rectangle extends shape {
-    
-    height : number ;
-    width : number ;
-
-    constructor (height : number , width : number)
-    {
-      super(1) ;
-      this.height = height ;
-      this.width = width;
-    }
-  } //to extend we use the keyword super
-
-  const r= new rectangle(2,4)
-  r.area
+const r = new rectangle(2, 4);
+r.area;
 
 //interface can be implemented as classes (difference btwn types and interfaces)
 
+//abstract
 
-  //abstract
-
-  abstract class user4{
-    name : string ;
-    constructor(name : string)
-    {
-      this.name = "phoolan devi"
-    }
-    abstract greet:() => string;
-    hello()
-    {
-      console.log("hi there")
-    }
+abstract class user4 {
+  name: string;
+  constructor(name: string) {
+    this.name = "phoolan devi";
   }
+  abstract greet: () => string;
+  hello() {
+    console.log("hi there");
+  }
+}
 //difference between abstract and interface is that abstract can have default implementations
 
-// type User = 
+// type User =
 // {
 //   name : string ;
 //   age : number
@@ -266,56 +252,49 @@ this.age = age
 //   return user.age >= 18;
 // }
 
-
 //types lets us do unions and itersections
-
 
 //intersections
 
-type employee = 
-{
-  name : string ;
-  startDate : Date;
-  
-}
+type employee = {
+  name: string;
+  startDate: Date;
+};
 
 type manager1 = {
-  name : string ;
- department : string;
-}
+  name: string;
+  department: string;
+};
 
-type TeamLead = employee & manager1 ;
+type TeamLead = employee & manager1;
 
+let e: employee = {
+  name: "mine",
+  startDate: new Date(),
+};
 
-let e : employee = {
-  name : "mine",
-  startDate : new Date()
-}
-
-let m : manager1 = {
-  name : "mine" ,
-  department : "cuhefk"
-}
+let m: manager1 = {
+  name: "mine",
+  department: "cuhefk",
+};
 
 let t: TeamLead = {
-  name : "mine" ,
-  startDate : new Date(),
-  department : "cuhefk"
-}
-
-
+  name: "mine",
+  startDate: new Date(),
+  department: "cuhefk",
+};
 
 //union
 
 type goodUser = {
- name : string ;
- gift : string 
-}
+  name: string;
+  gift: string;
+};
 
 type badUser = {
-  name : string , 
-  ip : string
-}
+  name: string;
+  ip: string;
+};
 
 type User = goodUser | badUser;
 
@@ -325,10 +304,10 @@ type User = goodUser | badUser;
 // gift : 'helloji'
 // }
 
-const user5 : User = {
-name : "naam" ,
-ip : "fds" ,
-} //union me ek bhi hoskta h aur sare ppt bhi hoskte h
+const user5: User = {
+  name: "naam",
+  ip: "fds",
+}; //union me ek bhi hoskta h aur sare ppt bhi hoskte h
 
 //interfaces vs types
 
@@ -348,32 +327,30 @@ ip : "fds" ,
 // console.log(user7.name)
 // }
 
+// function getMax(nums: number[]){
+//   let maxValue = -100000000000;
 
-function getMax(nums: number[]){
-  let maxValue = -100000000000;
+//   for (let i=0 ;i<nums.length ; i++)
+//   {
+//     if(nums[i] > maxValue)
+//     {
+//       maxValue = nums[i]
+//   }
+// }
+// return maxValue
+// }
 
-  for (let i=0 ;i<nums.length ; i++)
-  {
-    if(nums[i] > maxValue)
-    {
-      maxValue = nums[i]
-  }
-}
-return maxValue
-}
-
-getMax([1,2,3])
-
+// getMax([1,2,3])
 
 interface Addresss {
-  city : string ,
-  pincode :string;
+  city: string;
+  pincode: string;
 }
 
 interface User3 {
-  name : string ;
-  age : number ;
-  addresses : Addresss[]
+  name: string;
+  age: number;
+  addresses: Addresss[];
 }
 
 interface Addresss {
@@ -393,35 +370,48 @@ let user8: User3 = {
   addresses: [
     { city: "Delhi", pincode: "110001" },
     { city: "Mumbai", pincode: "400001" },
-    { city: "Lucknow", pincode: "226001" }
-  ]
+    { city: "Lucknow", pincode: "226001" },
+  ],
 };
 
- 
 interface Point {
   x: number;
   y: number;
 }
- 
+
 function logPoint(p: Point) {
   console.log(`${p.x}, ${p.y}`);
 }
- 
+
 // logs "12, 26"
 const point = { x: 12, y: 26 };
 logPoint(point);
 
-
-
 class VirtualPoint {
   x: number;
   y: number;
- 
+
   constructor(x: number, y: number) {
     this.x = x;
     this.y = y;
   }
 }
- 
+
 const newVPoint = new VirtualPoint(13, 56);
 logPoint(newVPoint); // logs "13, 56"
+
+
+// 
+
+
+interface u {
+  name: string;
+  age: number;
+}
+
+function sumOfAge(u1: u, u2: u) {
+  return u1.age + u2.age;
+}
+
+const agee = sumOfAge({ name: "hi", age: 25 }, { name: "yes", age: 35 });
+console.log(agee)
