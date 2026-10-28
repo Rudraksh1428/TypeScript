@@ -454,3 +454,34 @@ type updatedPropsOptional  = Partial<updateProps>
 function updateUser(updatedProps : updatedPropsOptional)
 {   
 }
+
+
+//Readonly = readonly prevents you from modifying a property after initialization.
+
+
+// const obj = {
+//   name: "john",
+//   age: 20,
+//   country: "india"
+// };
+
+// obj.name = "akjdjjka"; 
+// obj.age = 25;          
+// obj.country = "USA";  
+
+//by this method we can change any of the name age or country (one at a time not entire object),to stop this we use readonly
+
+interface User1 {
+  readonly name: string;
+  readonly age: number;
+  readonly country: string;
+}
+
+const obj: User1 = {
+  name: "john",
+  age: 20,
+  country: "india"
+};
+
+//obj.name = "Alex"; // ❌ Error
+// obj.age = 25;      // ❌ Error
