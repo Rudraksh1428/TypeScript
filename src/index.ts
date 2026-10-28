@@ -417,7 +417,28 @@
 // console.log(agee)
 
 
-//pick
+//pick (picks specific)
+
+// interface User {
+//   id: string ;
+//   name : string ;
+//   age : number ;
+//   email : string ;
+//   password : string
+// };
+
+// type updateProps = Pick<User , 'name'|'age'|'email' >
+
+// function updateUser(updatedProps : updateProps)
+// {   
+
+// }
+
+
+
+//partial (makes it optional)
+
+
 
 interface User {
   id: string ;
@@ -428,8 +449,8 @@ interface User {
 };
 
 type updateProps = Pick<User , 'name'|'age'|'email' >
+type updatedPropsOptional  = Partial<updateProps>
 
-function updateUser(updatedProps : updateProps)
+function updateUser(updatedProps : updatedPropsOptional)
 {   
-
 }
