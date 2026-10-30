@@ -563,17 +563,24 @@ import { z } from "zod";
 import express from "express";
 
 const app = express();
-
+ 
 // Define the schema for profile update
 const userProfileSchema = z.object({
   name: z.string().min(1, { message: "Name cannot be empty" }),
-  email: z.string().email({ message: "Invalid email" }),
+  email: z.string().email(),
   age: z.number().min(18, { message: "You must be at least 18 years old" }).optional(),
 });
 
+// type FinalUserSchema={
+//   name : string , age ?: number , email : string
+// }
+ 
+//better approach is 
+type FinalUserSchema = z.infer<typeof userProfileSchema>
+
 app.put("/user", (req, res) => {
   const { success } = userProfileSchema.safeParse(req.body);
-  const updateBody = req.body; // how to assign a type to updateBody?
+  const updateBody:FinalUserSchema = req.body; // how to assign a type to updateBody?
 
   if (!success) {
     res.status(411).json({});
@@ -587,3 +594,48 @@ app.put("/user", (req, res) => {
 });
 
 app.listen(3000);
+
+//type inference
+
+const StringZodSchema = z.string();
+type StringZodType = z.infer<typeof StringZodSchema> //string
+
+//generics - Generics allow us to create functions, classes and interfaces that can work with different data types without writing separate code for each type.
+
+
+/* function getFirstString(arr: string[]): string {
+  return arr[0];
+}
+
+function getFirstNumber(arr: number[]): number {
+  return arr[0];
+} 
+  
+instead of writing identical functions twice , we can use generics*/ 
+
+
+function getFirst<T>(arr: T[]): T | undefined{
+return arr[0];
+}
+
+
+const a = getFirst<string>(["ram", "shyam"]);
+const b = getFirst<number>([10, 20, 30]);
+
+console.log(a);
+console.log(b);
+
+//multiple generic parameters 
+
+function pair<T, U>(first: T, second: U) {
+  return {
+    first,
+    second
+  };
+}
+
+const result = pair<string, number>("age", 20);
+
+console.log(result);
+
+
